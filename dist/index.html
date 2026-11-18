@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0a1221" />
+  <title>Rota Dev — seu plano de estudos</title>
+  <meta name="description" content="Seu painel pessoal para construir uma base sólida em programação e preparar-se para estágio." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#inicio"><span class="brand-mark">&lt;/&gt;</span><span>Rota<span>Dev</span></span></a>
+      <p class="side-label">SEU ESPAÇO DE EVOLUÇÃO</p>
+      <nav>
+        <a class="nav-link active" href="#inicio"><i>⌂</i> Visão geral</a>
+        <a class="nav-link" href="#trilhas"><i>⌁</i> Trilhas</a>
+        <a class="nav-link" href="#pratica"><i>⌘</i> Praticar</a>
+        <a class="nav-link" href="#exercicios"><i>✓</i> Exercícios</a>
+        <a class="nav-link" href="#projetos"><i>◈</i> Projetos</a>
+        <a class="nav-link" href="#estagio"><i>↗</i> Estágio</a>
+      </nav>
+      <div class="side-card">
+        <span class="flame">✦</span>
+        <strong>Construa, registre,<br>reflita, repita.</strong>
+        <p>Você decide a rota. O painel ajuda a enxergar o caminho.</p>
+      </div>
+      <button class="text-btn reset" id="resetData">↻ Restaurar exemplo</button>
+    </aside>
+
+    <main>
+      <section id="inicio" class="page-section hero">
+        <div>
+          <p class="eyebrow"><span></span> TERÇA-FEIRA, 18 DE NOVEMBRO</p>
+          <h1>Bom dia, João.<br><em>Vamos dar forma</em> ao seu futuro.</h1>
+          <p class="hero-copy">Um espaço vivo para aprender fundamentos, praticar com intenção e transformar estudo em repertório para estágio.</p>
+        </div>
+        <div class="hero-actions">
+          <button class="btn primary" data-scroll="pratica">Praticar agora <b>→</b></button>
+          <button class="btn ghost" id="openSession">+ Registrar estudo</button>
+        </div>
+      </section>
+
+      <section class="metrics" aria-label="Resumo da semana">
+        <article class="metric card"><p>Tempo esta semana</p><strong id="weekTime">4h 30m</strong><small><span class="up">↑ 1h 10m</span> vs. semana passada</small></article>
+        <article class="metric card"><p>Sequência atual</p><strong><span class="sun">✦</span> 4 dias</strong><small>Seu melhor: <b>7 dias</b></small></article>
+        <article class="metric card"><p>Exercícios concluídos</p><strong id="doneCount">12 <span>/ 28</span></strong><div class="mini-bar"><i id="exerciseBar" style="width:43%"></i></div></article>
+        <article class="metric card"><p>Revisões pendentes</p><strong id="reviewCount">3</strong><button class="inline-action" data-scroll="revisoes">Ver agora →</button></article>
+      </section>
+
+      <section class="grid today-grid">
+        <article class="card task-card">
+          <div class="section-head"><div><p class="eyebrow">FOCO DE HOJE</p><h2>Plano do dia</h2></div><button class="icon-btn" id="addTask" aria-label="Adicionar tarefa">+</button></div>
+          <div id="tasks" class="tasks"></div>
+          <div class="task-progress"><span id="taskStatus">0 de 3 concluídas</span><div><i id="taskBar"></i></div></div>
+        </article>
+        <article class="card focus-card">
+          <div class="section-head"><div><p class="eyebrow">PRÓXIMA ETAPA</p><h2>Fundamentos de C</h2></div><span class="pill warm">em andamento</span></div>
+          <p>Domine a base que torna problemas complexos mais legíveis.</p>
+          <div class="topic-list"><span><b>01</b> Variáveis e tipos <i>feito</i></span><span><b>02</b> Condicionais e laços <i>feito</i></span><span class="current"><b>03</b> Vetores e strings <i>agora</i></span><span><b>04</b> Funções e ponteiros</span></div>
+          <a class="soft-link" href="#trilhas">Abrir trilha completa <b>→</b></a>
+        </article>
+      </section>
+
+      <section id="trilhas" class="page-section section-block">
+        <div class="section-head wide"><div><p class="eyebrow">APRENDIZADO INTENCIONAL</p><h2>Trilhas que sustentam sua base</h2><p>Use como mapa flexível: ajuste a ordem, a profundidade e o ritmo ao seu momento.</p></div><button class="btn ghost small" id="addTrack">+ Nova trilha</button></div>
+        <div class="track-grid" id="tracks"></div>
+      </section>
+
+      <section id="pratica" class="page-section practice-section">
+        <div class="section-head wide"><div><p class="eyebrow">LABORATÓRIO SEM IDE</p><h2>Pense antes de executar.</h2><p>Leia o problema, escreva a ideia e teste casos mentalmente. As dicas aparecem uma a uma; a solução completa não é revelada aqui.</p></div><span class="pill">Python · lógica</span></div>
+        <div class="practice-grid">
+          <article class="challenge card">
+            <div class="challenge-top"><span class="badge">DESAFIO 04</span><span class="difficulty">● intermediário</span></div>
+            <h3>Maior e posição</h3>
+            <p>Leia <b>5 números inteiros</b> e informe o maior valor e a posição em que ele apareceu, começando em 1.</p>
+            <div class="io"><div><small>ENTRADA</small><code>3 8 2 8 1</code></div><div><small>SAÍDA ESPERADA</small><code>8<br>2</code></div></div>
+            <div class="hints"><button class="hint-btn" data-hint="0">💡 Mostrar primeira pista</button><p class="hint hidden">Comece guardando o primeiro número como maior e sua posição como 1.</p><button class="hint-btn hidden" data-hint="1">💡 Mostrar próxima pista</button><p class="hint hidden">Em cada nova leitura, compare. Atualize apenas se o número for estritamente maior.</p></div>
+          </article>
+          <article class="code-panel card">
+            <div class="editor-head"><span><i class="dot red"></i><i class="dot yellow"></i><i class="dot green"></i> minha_tentativa.py</span><select id="langSelect"><option>Python</option><option>C</option></select></div>
+            <textarea id="codeInput" spellcheck="false" aria-label="Digite sua tentativa de código" placeholder="# Escreva sua tentativa aqui...\n\nvalores = list(map(int, input().split()))\n"></textarea>
+            <div class="editor-foot"><span>Seu código fica salvo neste navegador.</span><button class="btn primary small" id="analyzeCode">Pedir feedback →</button></div>
+          </article>
+        </div>
+        <div id="feedback" class="feedback hidden" aria-live="polite"></div>
+      </section>
+
+      <section id="exercicios" class="page-section section-block">
+        <div class="section-head wide"><div><p class="eyebrow">HISTÓRICO DE PRÁTICA</p><h2>Exercícios e tentativas</h2><p>Registre o que tentou, o que travou e a solução que conquistou. Isso transforma erro em revisão útil.</p></div><button class="btn primary small" id="addExercise">+ Cadastrar exercício</button></div>
+        <div class="exercise-filters"><button class="filter active" data-filter="todos">Todos</button><button class="filter" data-filter="C">C</button><button class="filter" data-filter="Python">Python</button><button class="filter" data-filter="beecrowd">beecrowd</button></div>
+        <div class="exercise-table-wrap"><table><thead><tr><th>EXERCÍCIO</th><th>TECNOLOGIA</th><th>STATUS</th><th>O QUE APRENDI / TRAVEI</th><th></th></tr></thead><tbody id="exerciseRows"></tbody></table></div>
+      </section>
+
+      <section id="revisoes" class="review-band">
+        <div><p class="eyebrow">REPETIÇÃO ESPAÇADA</p><h2>Três assuntos pedem uma volta.</h2><p>Revisar não é recomeçar: é deixar a base mais disponível para o próximo problema.</p></div>
+        <div id="reviews" class="review-list"></div>
+      </section>
+
+      <section id="projetos" class="page-section section-block">
+        <div class="section-head wide"><div><p class="eyebrow">PORTFÓLIO EM CONSTRUÇÃO</p><h2>Projetos que contam sua história</h2><p>Projetos pessoais e acadêmicos: registre intenção, tecnologia, próximos passos e repositório.</p></div><button class="btn ghost small" id="addProject">+ Novo projeto</button></div>
+        <div id="projects" class="project-grid"></div>
+      </section>
+
+      <section id="estagio" class="page-section internship-section">
+        <div class="section-head wide"><div><p class="eyebrow">PREPARAÇÃO PARA ESTÁGIO</p><h2>Conecte seu estudo ao próximo passo.</h2><p>Um painel de clareza, não uma lista de exigências. Você escolhe quais vagas fazem sentido buscar.</p></div><button class="btn primary small" id="addWeeklyAction">+ Ação da semana</button></div>
+        <div class="intern-grid">
+          <article class="card requirements"><h3>Mapa de conhecimentos</h3><div class="skill-line"><span>Algoritmos & lógica</span><b>base sólida</b></div><div class="skill-line"><span>Git e GitHub</span><b class="building">em prática</b></div><div class="skill-line"><span>APIs REST</span><b class="building">em prática</b></div><div class="skill-line"><span>SQL e modelagem</span><b class="gap">lacuna</b></div><div class="skill-line"><span>Testes</span><b class="gap">lacuna</b></div></article>
+          <article class="card actions"><h3>Ações desta semana</h3><div id="weeklyActions"></div></article>
+          <article class="card spotlight"><span class="badge">PARA DESTACAR NO CURRÍCULO</span><h3>API de hábitos</h3><p>FastAPI + PostgreSQL + autenticação + documentação. Um projeto que demonstra backend e organização.</p><button class="soft-link" data-scroll="projetos">Ver no portfólio <b>→</b></button></article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="modal"><form method="dialog" id="modalForm"><button class="modal-close" value="cancel">×</button><div id="modalContent"></div></form></dialog>
+  <template id="taskTemplate"><label class="task"><input type="checkbox"><span class="check"></span><span class="task-title"></span><small></small></label></template>
+  <script src="app.js"></script>
+</body>
+</html>
