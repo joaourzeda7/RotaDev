@@ -1,0 +1,33 @@
+# Dependências e resultados de build
+node_modules/
+coverage/
+.cache/
+*.log
+
+# Configurações e credenciais — nunca versionar
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+secrets/
+credentials/
+
+# Dados pessoais e cópias locais
+*.sqlite
+*.db
+*.backup
+rota-dev-backup*.json
+uploads/
+
+# Sistema e editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Artefatos locais da plataforma de publicação
+.openai/
+*.zip

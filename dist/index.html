@@ -4,12 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#0a1221" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'" />
   <title>Rota Dev — seu plano de estudos</title>
   <meta name="description" content="Seu painel pessoal para construir uma base sólida em programação e preparar-se para estágio." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="extras.css" />
 </head>
 <body>
   <div class="noise"></div>
@@ -22,6 +24,7 @@
         <a class="nav-link" href="#trilhas"><i>⌁</i> Trilhas</a>
         <a class="nav-link" href="#pratica"><i>⌘</i> Praticar</a>
         <a class="nav-link" href="#exercicios"><i>✓</i> Exercícios</a>
+        <a class="nav-link" href="#ritmo"><i>◷</i> Ritmo</a>
         <a class="nav-link" href="#projetos"><i>◈</i> Projetos</a>
         <a class="nav-link" href="#estagio"><i>↗</i> Estágio</a>
       </nav>
@@ -102,6 +105,24 @@
         <div id="reviews" class="review-list"></div>
       </section>
 
+      <section id="ritmo" class="page-section section-block">
+        <div class="section-head wide"><div><p class="eyebrow">RITMO E PLANEJAMENTO</p><h2>Planeje a semana, proteja seu foco.</h2><p>Metas pequenas, tempo visível e uma agenda que você pode ajustar sem culpa.</p></div><button class="btn ghost small" id="addCalendar">+ Bloco na agenda</button></div>
+        <div class="rhythm-grid">
+          <article class="card calendar-card"><div class="calendar-head"><button id="prevWeek">‹</button><strong>Semana de 17–23 nov.</strong><button id="nextWeek">›</button></div><div class="calendar-days" id="calendar"></div></article>
+          <article class="card timer-card"><p class="eyebrow">CRONÔMETRO DE FOCO</p><div class="timer-display" id="timerDisplay">25:00</div><p id="timerStatus">Pronto para uma sessão de concentração.</p><div class="timer-controls"><button class="btn primary small" id="startTimer">Começar</button><button class="btn ghost small" id="resetTimer">Reiniciar</button></div><div class="timer-presets"><button data-minutes="25">25 min</button><button data-minutes="45">45 min</button><button data-minutes="60">60 min</button></div></article>
+          <article class="card week-plan"><p class="eyebrow">PLANO FLEXÍVEL</p><h3>Meta da semana</h3><input id="weekGoal" placeholder="Ex.: fechar 4 exercícios de vetores"><div class="week-progress"><span id="weekGoalStatus">0 / 4 sessões</span><div class="mini-bar"><i id="weekGoalBar"></i></div></div><button class="soft-link" id="addSession">+ Registrar sessão concluída</button></article>
+        </div>
+      </section>
+
+      <section id="insights" class="page-section section-block">
+        <div class="section-head wide"><div><p class="eyebrow">REFLEXÃO E EVOLUÇÃO</p><h2>Transforme estudo em repertório.</h2><p>Deixe notas, observe padrões e use os erros como sinal para a próxima revisão.</p></div><button class="btn ghost small" id="saveNote">Salvar anotação</button></div>
+        <div class="insight-grid">
+          <article class="card notes-card"><label for="studyNote">Nota da sessão</label><textarea id="studyNote" placeholder="O que você entendeu? Onde travou? Que teste faria diferente?"></textarea><small>Salva neste navegador e vira material de revisão.</small></article>
+          <article class="card chart-card"><h3>Tempo por tema</h3><div class="bar-chart"><div><span>C & lógica</span><i style="--bar:76%"><b>3h 25m</b></i></div><div><span>Python</span><i style="--bar:48%"><b>2h 10m</b></i></div><div><span>Backend</span><i style="--bar:31%"><b>1h 25m</b></i></div><div><span>Git</span><i style="--bar:18%"><b>50m</b></i></div></div></article>
+          <article class="card difficulty-card"><h3>Sinais para revisar</h3><div id="difficultySignals"></div><button class="soft-link" data-scroll="revisoes">Ir para revisões <b>→</b></button></article>
+        </div>
+      </section>
+
       <section id="projetos" class="page-section section-block">
         <div class="section-head wide"><div><p class="eyebrow">PORTFÓLIO EM CONSTRUÇÃO</p><h2>Projetos que contam sua história</h2><p>Projetos pessoais e acadêmicos: registre intenção, tecnologia, próximos passos e repositório.</p></div><button class="btn ghost small" id="addProject">+ Novo projeto</button></div>
         <div id="projects" class="project-grid"></div>
@@ -114,6 +135,15 @@
           <article class="card actions"><h3>Ações desta semana</h3><div id="weeklyActions"></div></article>
           <article class="card spotlight"><span class="badge">PARA DESTACAR NO CURRÍCULO</span><h3>API de hábitos</h3><p>FastAPI + PostgreSQL + autenticação + documentação. Um projeto que demonstra backend e organização.</p><button class="soft-link" data-scroll="projetos">Ver no portfólio <b>→</b></button></article>
         </div>
+        <div class="career-tools">
+          <article class="card application-checklist"><div><p class="eyebrow">CHECKLIST DE CANDIDATURA</p><h3>Materiais prontos para mostrar</h3></div><div id="careerChecklist"></div></article>
+          <article class="card github-card"><p class="eyebrow">GITHUB & PORTFÓLIO</p><h3>Conecte seu trabalho ao que você constrói.</h3><p>Adicione seu perfil ou repositório para mantê-lo visível no seu plano.</p><div class="github-entry"><input id="githubUrl" placeholder="https://github.com/seu-usuario"><button class="btn primary small" id="saveGithub">Salvar</button></div><a id="githubLink" class="soft-link hidden" target="_blank">Abrir perfil / repositório ↗</a></article>
+        </div>
+      </section>
+
+      <section id="dados" class="data-section">
+        <div><p class="eyebrow">SEUS DADOS, SEU CONTROLE</p><h2>Faça backup do seu percurso.</h2><p>Exporte um resumo para currículo, planilha ou impressão. A sincronização entre dispositivos exigirá uma conta conectada no futuro.</p></div>
+        <div class="data-actions"><button class="btn ghost small" id="exportCsv">Exportar planilha (.csv)</button><button class="btn ghost small" id="printReport">Salvar como PDF</button><button class="btn ghost small" id="backupData">Backup (.json)</button><label class="btn primary small">Restaurar backup<input type="file" id="restoreData" accept="application/json" hidden></label></div>
       </section>
     </main>
   </div>
