@@ -1,2 +1,4 @@
 /* Fundo limpo: sem textura pontilhada. */
-.noise{display:none!important}
+.noise{display:none!important;visibility:hidden!important;opacity:0!important;background:none!important}
+html,body,.app-shell,main{background-image:none!important}
+body::before,body::after,.app-shell::before,.app-shell::after,main::before,main::after{display:none!important;content:none!important}
